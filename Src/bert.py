@@ -48,7 +48,6 @@ print(encoded_testset.keys())
 
 
 
-exit()
 batch_size = 32
 metric_name = "f1"
 
