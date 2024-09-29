@@ -423,6 +423,8 @@ reinforced-4-shot ------0.945
 Well, but this seems not to work because the accuracy between different ways of learning are very close\
 So we take gpt-3.5-turbo for experiment to check if my method of n-shot learning is wrong or not.
 
+### Accuracy (of gpt-3.5-turbo)
+
 zero-shot ------ 0.885
 
 reinforced-4-shot ------0.935
