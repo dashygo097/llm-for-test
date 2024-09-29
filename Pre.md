@@ -410,7 +410,7 @@ for index,text in enumerate(testset["text"]):
 print(f"accuracy: {acc_count / 200}")       
 ```
 
-### Accuracy 
+### Accuracy (of gpt-4o-mini)
 
 zero-shot ------ 0.93
 
@@ -419,6 +419,13 @@ zero-shot ------ 0.93
 4-shot ------0.93
 
 reinforced-4-shot ------0.945
+
+Well, but this seems not to work because the accuracy between different ways of learning are very close\
+So we take gpt-3.5-turbo for experiment to check if my method of n-shot learning is wrong or not.
+
+zero-shot ------ 0.885
+
+reinforced-4-shot ------0.935
 
 ## Code Attack Test(e.g. GPT-3.5-Turbo)
 
