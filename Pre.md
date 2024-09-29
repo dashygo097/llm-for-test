@@ -425,11 +425,11 @@ So we take gpt-3.5-turbo for experiment to check if my method of n-shot learning
 
 ### Accuracy (of gpt-3.5-turbo)
 
-zero-shot ------ 0.885
+zero-shot ------ test1: 0.885, test2: 0.9, test3: 0.89
 
-reinforced-4-shot ------0.935
+reinforced-4-shot ------ test1: 0.925, test2: 0.925 test3:0.925
 
-And it works. :)
+And it works. 
 
 ## Code Attack Test(e.g. GPT-3.5-Turbo)
 
