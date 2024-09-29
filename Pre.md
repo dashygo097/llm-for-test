@@ -104,10 +104,10 @@ class MultiHeadedAttetion(nn.Module):
         self.num_hidden = num_hidden
         self.num_heads = num_heads
         self.dropout = nn.Dropout(dropout)
-        self.W_q = nn.Linear(q_size, num_hidden * num_heads)
-        self.W_k = nn.Linear(k_size, num_hidden * num_heads)
-        self.W_v = nn.Linear(v_size, num_hidden * num_heads)
-        self.W_o = nn.Linear(num_hidden * num_heads, num_hidden * num_heads)
+        self.W_q = nn.Linear(q_size, num_hidden)
+        self.W_k = nn.Linear(k_size, num_hidden)
+        self.W_v = nn.Linear(v_size, num_hidden)
+        self.W_o = nn.Linear(num_hidden, num_hidden)
 
     def forward(self, Q, K, V):
         batch_size, context, embed_size = Q.shape
@@ -128,6 +128,7 @@ class MultiHeadedAttetion(nn.Module):
         V = self.W_v(V)
 
         outputs, weights = scaled_dot_product_attention(Q, K, V)
+        outputs = self.W_o(outputs)
 
         return outputs, weights
 ```
@@ -146,7 +147,7 @@ outputs, weights = attention(Q, K, V)
 print(outputs.shape, weights.shape)
 print(outputs[0][0][:10])
 print(weights[0][0][0][:20])
-# torch.Size([10, 8, 20, 128]), torch.Size([10, 8, 20, 20])  
+# torch.Size([10, 8, 20, 16]) torch.Size([10, 8, 20, 20])
 ```
 
 ## Fine-tune BERT&GPT2(e.g. BERT)
